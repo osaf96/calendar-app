@@ -1,0 +1,27 @@
+<div class="container">
+  <div class="jumbotron">
+    <h1 class="text-center">Daily View</h1>
+    <div class="row">
+      <div class="col-sm-12">
+        <table class="table">
+          <thead>
+            <tr>
+              <th>Time</th>
+              <th>{{ selectedDay.dayName }}</th>
+            </tr>
+          </thead>
+          <tbody>
+            @for(hour of hours; track hour){
+            <tr>
+              <td>{{ hour }}:00</td>
+              <td>
+                <!-- Placeholder for events or content -->
+              </td>
+            </tr>
+            }
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>

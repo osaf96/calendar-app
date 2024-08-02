@@ -1,0 +1,102 @@
+/* Container and table styling */
+
+.jumbotron {
+  padding: 20px;
+  border-radius: 5px;
+}
+
+.text-center {
+  text-align: center;
+}
+
+.row {
+  display: block;
+  justify-content: center;
+}
+
+.table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+}
+
+/* styling for table */
+.table tr {
+  border: 1px solid #ddd;
+}
+
+.table td {
+  border: 1px solid #ddd; /* border for each cell */
+  padding: 10px;
+  text-align: center;
+  width: 14.28%; /* equal width for each cell */
+}
+
+.table td.day {
+  background-color: #f1f1f1;
+}
+
+.table td.hover {
+  background-color: #e2e6ea;
+}
+
+.day {
+  text-align: center;
+  padding: 10px;
+}
+.hover {
+  background-color: #f0f0f0;
+}
+.today {
+  background: #0056b3 !important;
+  font-weight: bold;
+  color: white;
+}
+
+.container {
+  .jumbotron {
+    .table {
+      tbody {
+        tr {
+          td {
+            position: relative;
+            text-align: center;
+            padding: 0.5rem;
+            height: 60px;
+
+            &.event::after {
+              content: "";
+              position: absolute;
+              width: 10px;
+              height: 10px;
+              background-color: red;
+              border-radius: 50%;
+              display: inline-block;
+              cursor: pointer;
+              bottom: 5px;
+              left: 50%;
+              transform: translateX(-50%);
+            }
+
+            .event-details {
+              margin-top: 20px;
+              padding: 10px;
+              border: 1px solid #ddd;
+              border-radius: 4px;
+              background-color: #f9f9f9;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+.clickable-cell {
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+
+  &:hover {
+    background-color: #f0f0f0; // Adjust the hover color as needed
+  }
+}

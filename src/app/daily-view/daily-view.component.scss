@@ -1,0 +1,51 @@
+/* General container styling */
+.container {
+  margin-top: 20px;
+  padding: 20px;
+}
+
+/* jumbotron styling */
+.jumbotron {
+  padding: 20px;
+  background-color: #f8f9fa;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* header styling */
+h1.text-center {
+  font-size: 24px;
+  font-weight: bold;
+  color: #343a40;
+}
+
+/* table styling */
+.table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.table th,
+.table td {
+  padding: 12px;
+  text-align: center;
+  border-bottom: 1px solid #dee2e6;
+}
+
+.table th {
+  background-color: #343a40;
+  color: #ffffff;
+  font-weight: bold;
+}
+
+.table td {
+  background-color: #ffffff;
+}
+
+.table tbody tr:nth-child(even) td {
+  background-color: #f2f2f2;
+}
+
+.table tbody tr:hover td {
+  background-color: #e9ecef;
+}

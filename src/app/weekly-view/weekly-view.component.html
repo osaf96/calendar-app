@@ -1,0 +1,42 @@
+<div class="container">
+  <div class="jumbotron">
+    <h1 class="text-center">Weekly View</h1>
+    <p class="text-center">
+      From {{ startOfWeek | date : "MMM d, yyyy" }} to
+      {{ endOfWeek | date : "MMM d, yyyy" }}
+    </p>
+    <div class="row">
+      <div class="col-sm-12">
+        <table class="table">
+          <thead>
+            <tr>
+              <th>Time</th>
+              @for(day of week; track day){
+              <th>{{ day.dayName }} ({{ day.formattedDate }})</th>
+              }
+            </tr>
+          </thead>
+          <tbody>
+            @for(hour of hours; track hour){
+            <tr>
+              <td>{{ hour }}:00</td>
+              @for(day of week; track day){
+              <td [ngClass]="{ 'has-event': day.hasEvent }">
+                <ng-container *ngIf="day.hasEvent">
+                  <div
+                    class="event-dot example-box"
+                    cdkDragLockAxis="y"
+                    cdkDrag
+                    (click)="openDialog(day.date)"
+                  ></div>
+                </ng-container>
+              </td>
+              }
+            </tr>
+            }
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>

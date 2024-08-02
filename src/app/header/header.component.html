@@ -1,0 +1,38 @@
+<nav>
+  <div class="container">
+    <div class="nav-section">
+      <mat-button-toggle-group name="fontStyle" aria-label="Font Style">
+        <mat-button-toggle value="previous" (click)="onPrevClick()"
+          >previous</mat-button-toggle
+        >
+        <mat-button-toggle value="today" (click)="onTodayClick()"
+          >Today</mat-button-toggle
+        >
+        <mat-button-toggle value="next" (click)="onNextClick()"
+          >Next</mat-button-toggle
+        >
+      </mat-button-toggle-group>
+    </div>
+    <div class="date-display">
+      <span class="date-part">{{ month }}</span>
+      <span class="date-part">{{ year }}</span>
+    </div>
+    <div class="nav-section">
+      <mat-button-toggle-group name="fontStyle" aria-label="Font Style">
+        <mat-button-toggle value="bold" (click)="toggleView(calendarView.month)"
+          >Month</mat-button-toggle
+        >
+        <mat-button-toggle
+          value="italic"
+          (click)="toggleView(calendarView.week)"
+          >Week</mat-button-toggle
+        >
+        <mat-button-toggle
+          value="underline"
+          (click)="toggleView(calendarView.day)"
+          >Day</mat-button-toggle
+        >
+      </mat-button-toggle-group>
+    </div>
+  </div>
+</nav>

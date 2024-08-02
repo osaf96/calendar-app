@@ -1,0 +1,17 @@
+<div class="details-container">
+  <div class="details-header">
+    <h3 class="details-title">{{ data.title }}</h3>
+  </div>
+  <div class="details-content">
+    <p class="date-range">
+      <strong>Date:</strong> {{ data.startDate | date }} -
+      {{ data.endDate | date }}
+    </p>
+    <p class="details-description">
+      {{ data.description || "No description available" }}
+    </p>
+    <p class="details-location">
+      <strong>Location:</strong> {{ data.location }}
+    </p>
+  </div>
+</div>

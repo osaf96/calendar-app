@@ -1,0 +1,61 @@
+<app-header
+  (nextMonth)="onNextMonth()"
+  (prevMonth)="onPrevMonth()"
+  (onToday)="onToday()"
+  [month]="month"
+  [year]="year"
+  [day]="day"
+  (changeCalendarView)="onChangeCalendarView($event)"
+></app-header>
+
+<div class="container">
+  <div *ngIf="calendarView === calendarViewEnum.month" class="jumbotron">
+    <div class="row">
+      <div class="col-sm-10 col-sm-offset-1">
+        <table class="table">
+          <tbody>
+            @for(row of calendar; track row) {
+            <tr>
+              @for( cell of row; track cell) {
+              <td
+                [ngClass]="{
+                  day: cell.day,
+                  hover: cell.hover,
+                  today: cell.today,
+                  event: cell.hasEvent
+                }"
+                (mouseover)="cell.hover = true"
+                (mouseout)="cell.hover = false"
+                (click)="
+                  openDialog(
+                    cell.day,
+                    currentDate.getMonth(),
+                    currentDate.getFullYear()
+                  )
+                "
+                class="clickable-cell"
+              >
+                <div>
+                  {{ cell.day || cell.weekDay }}
+                </div>
+                <ng-container *ngIf="cell.hasEvent">
+                  <div class="event-circle"></div>
+                </ng-container>
+              </td>
+
+              }
+            </tr>
+            }
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+  <app-weekly-view
+    *ngIf="calendarView === calendarViewEnum.week"
+  ></app-weekly-view>
+  <app-daily-view
+    *ngIf="calendarView === calendarViewEnum.day"
+  ></app-daily-view>
+  <app-event-form (eventAdded)="onEventAdded($event)"></app-event-form>
+</div>
